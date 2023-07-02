@@ -1,0 +1,110 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class SubscriptionSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        DB::unprepared(<<<SQL
+            REPLACE INTO `subscriptions` (`id`, `identifier`, `title`, `description`, `created_at`, `updated_at`) VALUES
+                (1, 'UC-10rDN5UDOSj1wVM5ibULw', 'Maya Kamaty', NULL, NULL, NULL),
+                (2, 'UC2Qw1dzXDBAZPwS7zm37g8g', 'COLORS', NULL, NULL, NULL),
+                (3, 'UC2_OG1L8DLTzQ7UrZVOk7OA', 'Axolot', NULL, NULL, NULL),
+                (4, 'UC2ijB3_Fg2pIW1g6FeIiYKA', 'Backseat', NULL, NULL, NULL),
+                (5, 'UC34VIv1sVu8YlVSPG5RvCJw', 'MonkeyMethod', NULL, NULL, NULL),
+                (6, 'UC39KF9j7hucS2xncTO8d5CQ', 'Kud', NULL, NULL, NULL),
+                (7, 'UC5nc_ZtjKW1htCVZVRxlQAQ', 'MrSuicideSheep', NULL, NULL, NULL),
+                (8, 'UC6MJgfyveNAFl_pWwt5i14w', 'Panayotis Pascot', NULL, NULL, NULL),
+                (9, 'UC6nSFpj9HTCZ5t-N3Rm3-HA', 'Vsauce', NULL, NULL, NULL),
+                (10, 'UC8381r3eNzmJnd6dNO7z3vA', 'Laracon Online', NULL, NULL, NULL),
+                (11, 'UC8JOgFXp-I3YV6dsKqqQdUw', 'Caroline Winkler', NULL, NULL, NULL),
+                (12, 'UCBJycsmduvYEL83R_U4JriQ', 'Marques Brownlee', NULL, NULL, NULL),
+                (13, 'UCBa659QWEk1AI4Tg--mrJ2A', 'Tom Scott', NULL, NULL, NULL),
+                (14, 'UCC9mlCpyisiIpp9YA9xV-QA', 'Vilebrequin', NULL, NULL, NULL),
+                (15, 'UCCMxHHciWRBBouzk-PGzmtQ', 'Bazar du Grenier', NULL, NULL, NULL),
+                (16, 'UCCelP6iJfYoj0Ea3qXqugXQ', 'Mike Horn', NULL, NULL, NULL),
+                (17, 'UCDsdjYgVORwLficCmpZi8eg', 'Edward', NULL, NULL, NULL),
+                (18, 'UCDstQZHA9T8-ZP046R0KEXA', 'OfferZen Origins', NULL, NULL, NULL),
+                (19, 'UCE1jXbVAGJQEORz9nZqb5bQ', 'Ahoy', NULL, NULL, NULL),
+                (20, 'UCECJDeK0MNapZbpaOzxrUPA', 'Luisito Comunica', NULL, NULL, NULL),
+                (21, 'UCE_LWXcsdp7cWbo4DR4ZA-A', 'Science de comptoir', NULL, NULL, NULL),
+                (22, 'UCEnFzIYw3BrndPCddyQ6c5A', 'orelsan', NULL, NULL, NULL),
+                (23, 'UCF0G-EcuphAUtBrsDYdgK_w', 'Crac Crac', NULL, NULL, NULL),
+                (24, 'UCFg9-S0cfu3UvBYuSNFT9hQ', 'RagnarRox', NULL, NULL, NULL),
+                (25, 'UCGHfrDbIAF72GB86WR91i8g', 'Mt Gargan Records', NULL, NULL, NULL),
+                (26, 'UCI0LNmSlhS-H9mGNPWM8gzQ', 'At0mium', NULL, NULL, NULL),
+                (27, 'UCIfdf90ctybSVAL3x1-2cZw', 'Caitlin Reilly', NULL, NULL, NULL),
+                (28, 'UCKNJiTmKrur10zxStf5Gztw', 'NESblog / Speed Game', NULL, NULL, NULL),
+                (29, 'UCKe32WsyL2Pb7ktZJce0yTg', 'Tabatha Mustang', NULL, NULL, NULL),
+                (30, 'UCL-y95OCyfWeGVIH-gpG1aA', 'Karim Debbache', NULL, NULL, NULL),
+                (31, 'UCLTZddgA_La9H4Ngg99t_QQ', 'SuicideSheeep', NULL, NULL, NULL),
+                (32, 'UCLx053rWZxCiYWsBETgdKrQ', 'LGR', NULL, NULL, NULL),
+                (33, 'UCMb0O2CdPBNi-QqPk5T3gsQ', 'James Hoffmann', NULL, NULL, NULL),
+                (34, 'UCNClTuQ3kCgajguHHoN-fHQ', 'Norma Official', NULL, NULL, NULL),
+                (35, 'UCNDAbwbXmmgosddFdUyRWwg', 'welovephoenix', NULL, NULL, NULL),
+                (36, 'UCNIuvl7V8zACPpTmmNIqP2A', 'OverSimplified', NULL, NULL, NULL),
+                (37, 'UCO7fujFV_MuxTM0TuZrnE6Q', 'Felix Colgrave', NULL, NULL, NULL),
+                (38, 'UCRcgy6GzDeccI7dkbbBna3Q', 'LEMMiNO', NULL, NULL, NULL),
+                (39, 'UCRhflCjjz84W6uiHQQK_flw', 'At0miumVOD', NULL, NULL, NULL),
+                (40, 'UCS63E8z6loDgUcvvgsMOJlA', 'BlueMetal', NULL, NULL, NULL),
+                (41, 'UCTcraSQKl7F8GFiLydv6eDg', 'ratatatmusic', NULL, NULL, NULL),
+                (42, 'UCTljLU4Tb2jcW9n23APDwZg', 'STRIP TEASE OFFICIEL 🇫🇷', NULL, NULL, NULL),
+                (43, 'UCTsVUFR3nH3izr46gReSz4w', 'Louis Crespin', NULL, NULL, NULL),
+                (44, 'UCVIFCOJwv3emlVmBbPCZrvw', 'Joel Haver', NULL, NULL, NULL),
+                (45, 'UCW7AGm8JSBEEew61dJIgl_A', 'tom cardy', NULL, NULL, NULL),
+                (46, 'UCWOqcCXp7jTwvkVhLkQVeFg', 'BALO', NULL, NULL, NULL),
+                (47, 'UCWqr2tH3dPshNhPjV5h1xRw', 'Super Bunnyhop', NULL, NULL, NULL),
+                (48, 'UCX2dIyMEQMWy3AQBlq1CYXQ', 'TéléCrayon', NULL, NULL, NULL),
+                (49, 'UCXAhoI7XO2kafTMjocm0jCg', 'Flume', NULL, NULL, NULL),
+                (50, 'UCXQW_V8roJ1UBcJq-fNP1eQ', 'Yes vous aime', NULL, NULL, NULL),
+                (51, 'UCYBr8enT5x4-JIxcPY6y-_A', 'Calmos', NULL, NULL, NULL),
+                (52, 'UC__xRB5L4toU9yYawt_lIKg', 'BLAST; Le souffle de l\'info', NULL, NULL, NULL),
+                (53, 'UC_yP2DpIgs5Y1uWC0T03Chw', 'Joueur Du Grenier', NULL, NULL, NULL),
+                (54, 'UC_zQ777U6YTyatP3P1wi3xw', 'NEVER TOO SMALL', NULL, NULL, NULL),
+                (55, 'UCaY9kHyOrtmF2A9T8j5tkzA', 'En roues libres', NULL, NULL, NULL),
+                (56, 'UCaZRpfXzlHVchIJMpf-PVFw', 'Sci+', NULL, NULL, NULL),
+                (57, 'UCacfM4HIboxjjsG46fPyrnA', 'The2emedanger', NULL, NULL, NULL),
+                (58, 'UCbWbe685KsEAKIeJrnutFzw', 'Danger', NULL, NULL, NULL),
+                (59, 'UCbfYPyITQ-7l4upoX8nvctg', 'Two Minute Papers', NULL, NULL, NULL),
+                (60, 'UCbqd2YmFeHMwxlj4NcN5zPQ', 'Zimri Mayfield', NULL, NULL, NULL),
+                (61, 'UCdnaDhU-LDQrIEEmSIfq0-Q', 'Mediapart', NULL, NULL, NULL),
+                (62, 'UCeR8BYZS7IHYjk_9Mh5JgkA', 'Scilabus', NULL, NULL, NULL),
+                (63, 'UCfKVWB_pOfsY-HQ2siMBn6g', 'Flipper Zero', NULL, NULL, NULL),
+                (64, 'UCgxg48_pay4R67s-7WOgWFA', 'The Local Project', NULL, NULL, NULL),
+                (65, 'UCh5JF-qt2ZXg8acejcJ15Xw', 'Karambolage en français - ARTE', NULL, NULL, NULL),
+                (66, 'UCi1h68Fys0apnhLaJ-ijQOw', 'INA Politique', NULL, NULL, NULL),
+                (67, 'UCiMWQs-GxmGtTWbCDo0NznA', 'JSAM', NULL, NULL, NULL),
+                (68, 'UClVvT4X_wT_FDRwYVjx-D5A', 'RACONTE', NULL, NULL, NULL),
+                (69, 'UCm5wThREh298TkK8hCT9HuA', 'Data Gueule', NULL, NULL, NULL),
+                (70, 'UCm9K6rby98W8JigLoZOh6FQ', 'LockPickingLawyer', NULL, NULL, NULL),
+                (71, 'UCmEZO4HufjDCOFSwECbsCGA', 'Chase Kip', NULL, NULL, NULL),
+                (72, 'UCoNTMWgGuXtGPLv9UeJZwBw', 'Living Big In A Tiny House', NULL, NULL, NULL),
+                (73, 'UCqMDNf3Pn5L7pcNkuSEeO3w', 'Madeon', NULL, NULL, NULL),
+                (74, 'UCqt99sKYNTxqlHtzV9weUYA', 'VU FranceTV', NULL, NULL, NULL),
+                (75, 'UCr5qeBG9g7bGtMGyHG2GzbQ', 'Absolute History', NULL, NULL, NULL),
+                (76, 'UCs2UszeXZlQ-DsHI667DONA', 'Altis play', NULL, NULL, NULL),
+                (77, 'UCsBjURrPoezykLs9EqgamOA', 'Fireship', NULL, NULL, NULL),
+                (78, 'UCsXVk37bltHxD1rDPwtNM8Q', 'Kurzgesagt – In a Nutshell', NULL, NULL, NULL),
+                (79, 'UCstYELvMHHhLQfYHEZhYNng', 'odezenne', NULL, NULL, NULL),
+                (80, 'UCtUbO6rBht0daVIOGML3c8w', 'Summoning Salt', NULL, NULL, NULL),
+                (81, 'UCtuyh32KkuDZxqZMKtna5kw', 'SUNSET', NULL, NULL, NULL),
+                (82, 'UCus9EeXDcLaCJhVXYd6PJcg', 'mistermv', NULL, NULL, NULL),
+                (83, 'UCv88958LRDfndKV_Y7XmAnA', 'Les Kassos', NULL, NULL, NULL),
+                (84, 'UCvrLvII5oxSWEMEkszrxXEA', 'N-O-D-E', NULL, NULL, NULL),
+                (85, 'UCwodgWLBaJ11UYpcWezh2Ng', 'metricmusic', NULL, NULL, NULL),
+                (86, 'UCwyPwUs26z22TyqVmxi1YXw', 'makoshopstore', NULL, NULL, NULL),
+                (87, 'UCyS4xQE6DK4_p3qXQwJQAyA', 'DidYouKnowGaming?', NULL, NULL, NULL),
+                (88, 'UCyU5wkjgQYGRB0hIHMwm2Sg', 'LevelUpTuts', NULL, NULL, NULL),
+                (89, 'UCywuq7AxUM4uYrVmSFm3Ezw', 'glamourdaze', NULL, NULL, NULL),
+                (90, 'UCzr7FsXkETYaaHTySIeJsjQ', 'Deliberate Spanish', NULL, NULL, NULL);
+        SQL);
+    }
+}

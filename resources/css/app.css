@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#description a {
+    @apply text-red-500;
+    @apply font-bold;
+    @apply hover:text-red-700;
+    @apply hover:underline;
+    @apply transition-all;
+    @apply duration-300;
+    @apply ease-in-out;
+    text-decoration: none;
+}
