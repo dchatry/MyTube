@@ -6,16 +6,17 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "ext-simplexml": "*",
         "alaouy/youtube": "^2.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "ext-simplexml": "*"
+        "protonemedia/laravel-splade": "1.4.15.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
-        "laravel/pint": "^1.0",
+        "laravel/pint": "^1.10",
         "laravel/sail": "^1.23",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
@@ -37,9 +38,7 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
-            "curl -L https://yt-dl.org/downloads/latest/youtube-dl -o ./vendor/bin/youtube-dl",
-            "chmod a+rx ./vendor/bin/youtube-dl"
+            "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

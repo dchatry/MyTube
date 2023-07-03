@@ -29,6 +29,7 @@ class RefreshSubscriptionsCommand extends Command
     {
         if ($this->argument('subscription')) {
             RefreshSubscriptionJob::dispatch($this->argument('subscription'));
+
             return;
         }
 

@@ -2,12 +2,15 @@
 
 namespace App\Providers;
 
+use App\Events\SubscriptionDeleted;
 use App\Events\VideoCreated;
+use App\Events\VideoDeleted;
+use App\Listeners\DeleteSubscriptionVideos;
+use App\Listeners\DeleteVideoFiles;
 use App\Listeners\ProcessVideo;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +25,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         VideoCreated::class => [
             ProcessVideo::class,
+        ],
+        VideoDeleted::class => [
+            DeleteVideoFiles::class,
+        ],
+        SubscriptionDeleted::class => [
+            DeleteSubscriptionVideos::class,
         ],
     ];
 

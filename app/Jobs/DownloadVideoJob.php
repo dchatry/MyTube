@@ -25,6 +25,7 @@ class DownloadVideoJob implements ShouldQueue
 
     /**
      * Execute the job.
+     *
      * @throws \Exception
      */
     public function handle(): void
@@ -39,6 +40,7 @@ class DownloadVideoJob implements ShouldQueue
 
         $this->video->update([
             'description' => Storage::disk('videos')->get("{$this->video->identifier}/{$this->video->identifier}.description"),
+            'size' => Storage::disk('videos')->size("{$this->video->identifier}/{$this->video->identifier}.mp4"),
             'processed_at' => now(),
         ]);
     }

@@ -2,9 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Jobs\DownloadVideoJob;
-
-class ProcessVideo
+class DeleteSubscriptionVideos
 {
     /**
      * Create the event listener.
@@ -19,6 +17,6 @@ class ProcessVideo
      */
     public function handle(object $event): void
     {
-        DownloadVideoJob::dispatch($event->video);
+        $event->subscription->videos->each->delete();
     }
 }

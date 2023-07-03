@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Events\VideoCreated;
+use App\Events\VideoDeleted;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Prunable;
@@ -19,6 +20,7 @@ class Video extends Model
         'title',
         'description',
         'duration',
+        'size',
         'processed_at',
         'published_at',
     ];
@@ -30,6 +32,7 @@ class Video extends Model
 
     protected $dispatchesEvents = [
         'created' => VideoCreated::class,
+        'deleted' => VideoDeleted::class,
     ];
 
     public function prunable(): Builder
@@ -38,6 +41,11 @@ class Video extends Model
     }
 
     protected function pruning(): void
+    {
+        $this->deleteFiles();
+    }
+
+    public function deleteFiles(): void
     {
         Storage::disk('videos')->deleteDirectory($this->identifier);
     }

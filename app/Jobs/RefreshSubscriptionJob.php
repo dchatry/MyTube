@@ -26,6 +26,7 @@ class RefreshSubscriptionJob implements ShouldQueue
 
     /**
      * Execute the job.
+     *
      * @throws \Exception
      */
     public function handle(): void
@@ -34,6 +35,7 @@ class RefreshSubscriptionJob implements ShouldQueue
 
         if (! $response->ok()) {
             report("Unable to fetch {$this->subscription->title} feed");
+
             return;
         }
 

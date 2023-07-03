@@ -17,33 +17,24 @@ class Linkify
     /**
      * Constructor.
      *
-     * @param array $options Default options.
+     * @param  array  $options Default options.
      */
-    public function __construct(array $options = array())
+    public function __construct(array $options = [])
     {
         $this->options = $options;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function process($text, array $options = array())
+    public function process($text, array $options = [])
     {
         return $this->linkify($text, true, true, $options);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function processUrls($text, array $options = array())
+    public function processUrls($text, array $options = [])
     {
         return $this->linkify($text, true, false, $options);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function processEmails($text, array $options = array())
+    public function processEmails($text, array $options = [])
     {
         return $this->linkify($text, false, true, $options);
     }
@@ -51,14 +42,13 @@ class Linkify
     /**
      * Add links to text.
      *
-     * @param string $text    Text to linkify.
-     * @param bool   $urls    Linkify URLs?
-     * @param bool   $emails  Linkify email addresses?
-     * @param array  $options Options.
-     *
+     * @param  string  $text    Text to linkify.
+     * @param  bool  $urls    Linkify URLs?
+     * @param  bool  $emails  Linkify email addresses?
+     * @param  array  $options Options.
      * @return string Linkified text.
      */
-    protected function linkify($text, $urls = true, $emails = true, array $options = array())
+    protected function linkify($text, $urls = true, $emails = true, array $options = [])
     {
         if (false === $urls && false === $emails) {
             // nothing to do...
@@ -80,7 +70,7 @@ class Linkify
 
         $options['attr'] = $attr;
 
-        $ignoreTags = array('head', 'link', 'a', 'script', 'style', 'code', 'pre', 'select', 'textarea', 'button');
+        $ignoreTags = ['head', 'link', 'a', 'script', 'style', 'code', 'pre', 'select', 'textarea', 'button'];
 
         $chunks = preg_split('/(<.+?>)/is', $text, 0, PREG_SPLIT_DELIM_CAPTURE);
 
@@ -101,12 +91,12 @@ class Linkify
                 // Only process this tag if there are no unclosed $ignoreTags
                 if (null === $openTag) {
                     // Check whether this tag is contained in $ignoreTags and is not self-closing
-                    if (preg_match("`<(" . implode('|', $ignoreTags) . ").*(?<!/)>$`is", $chunks[$i], $matches)) {
+                    if (preg_match('`<('.implode('|', $ignoreTags).').*(?<!/)>$`is', $chunks[$i], $matches)) {
                         $openTag = $matches[1];
                     }
                 } else {
                     // Otherwise, check whether this is the closing tag for $openTag.
-                    if (preg_match('`</\s*' . $openTag . '>`i', $chunks[$i], $matches)) {
+                    if (preg_match('`</\s*'.$openTag.'>`i', $chunks[$i], $matches)) {
                         $openTag = null;
                     }
                 }
@@ -124,12 +114,11 @@ class Linkify
      * @see http://www.regular-expressions.info/catastrophic.html For more info on atomic-grouping,
      *      used in this regex to prevent Catastrophic Backtracking.
      *
-     * @param string $text    Text to linkify.
-     * @param array  $options Options, 'attr' key being the attributes to add to the links, with a preceding space.
-     *
+     * @param  string  $text    Text to linkify.
+     * @param  array  $options Options, 'attr' key being the attributes to add to the links, with a preceding space.
      * @return string Linkified text.
      */
-    protected function linkifyUrls($text, $options = array('attr' => ''))
+    protected function linkifyUrls($text, $options = ['attr' => ''])
     {
         $pattern = '~(?xi)
               (?:
@@ -155,20 +144,20 @@ class Linkify
 
         $callback = function ($match) use ($options) {
             $caption = $match[0];
-            $pattern = "~^(ht|f)tps?://~";
+            $pattern = '~^(ht|f)tps?://~';
 
             if (0 === preg_match($pattern, $match[0])) {
-                $match[0] = 'http://' . $match[0];
+                $match[0] = 'http://'.$match[0];
             }
 
             if (isset($options['callback'])) {
                 $cb = $options['callback']($match[0], $caption, false);
-                if (!is_null($cb)) {
+                if (! is_null($cb)) {
                     return $cb;
                 }
             }
 
-            return '<a href="' . $match[0] . '"' . $options['attr'] . '>' . $caption . '</a>';
+            return '<a href="'.$match[0].'"'.$options['attr'].'>'.$caption.'</a>';
         };
 
         return preg_replace_callback($pattern, $callback, $text);
@@ -177,12 +166,11 @@ class Linkify
     /**
      * Add HTML links to email addresses in plain text.
      *
-     * @param string $text    Text to linkify.
-     * @param array  $options Options, 'attr' key being the attributes to add to the links, with a preceding space.
-     *
+     * @param  string  $text    Text to linkify.
+     * @param  array  $options Options, 'attr' key being the attributes to add to the links, with a preceding space.
      * @return string Linkified text.
      */
-    protected function linkifyEmails($text, $options = array('attr' => ''))
+    protected function linkifyEmails($text, $options = ['attr' => ''])
     {
         $pattern = '~(?xi)
                 \b
@@ -197,12 +185,12 @@ class Linkify
         $callback = function ($match) use ($options) {
             if (isset($options['callback'])) {
                 $cb = $options['callback']($match[0], $match[0], true);
-                if (!is_null($cb)) {
+                if (! is_null($cb)) {
                     return $cb;
                 }
             }
 
-            return '<a href="mailto:' . $match[0] . '"' . $options['attr'] . '>' . $match[0] . '</a>';
+            return '<a href="mailto:'.$match[0].'"'.$options['attr'].'>'.$match[0].'</a>';
         };
 
         return preg_replace_callback($pattern, $callback, $text);
