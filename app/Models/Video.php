@@ -62,6 +62,10 @@ class Video extends Model
 
     protected function getThumbnailFilePathAttribute(): string
     {
+        if (Storage::disk('videos')->exists("{$this->identifier}/{$this->identifier}.jpg")) {
+            return asset("storage/videos/{$this->identifier}/{$this->identifier}.jpg");
+        }
+
         return asset("storage/videos/{$this->identifier}/{$this->identifier}.webp");
     }
 
