@@ -32,7 +32,7 @@ class DownloadVideoJob implements ShouldQueue
     {
         $result = Process::timeout(120)
             ->path(Storage::disk('videos')->path('/'))
-            ->run("youtube-dl -f best -ciw --write-description --write-thumbnail {$this->video->identifier} -o '{$this->video->identifier}/{$this->video->identifier}.%(ext)s'");
+            ->run("/home/forge/.local/bin/youtube-dl -f best -ciw --write-description --write-thumbnail {$this->video->identifier} -o '{$this->video->identifier}/{$this->video->identifier}.%(ext)s'");
 
         if (! Storage::disk('videos')->exists("{$this->video->identifier}/{$this->video->identifier}.mp4")) {
             throw new \Exception("Unable to download {$this->video->title}: {$result->errorOutput()}.");
