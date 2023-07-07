@@ -13,6 +13,11 @@ createApp({
     .use(SpladePlugin, {
         "max_keep_alive": 10,
         "transform_anchors": false,
-        "progress_bar": true
+        "progress_bar": {
+            delay: 0,
+            color: "#000000",
+            css: true,
+            spinner: true,
+        }
     })
     .mount(el);

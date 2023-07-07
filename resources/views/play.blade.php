@@ -1,14 +1,14 @@
 <x-layout>
     <div class="animate-fade-right animate-once">
         <div class="group block w-full overflow-hidden rounded-none sm:rounded-lg bg-gray-100">
-            <video autoplay="" controls class="bg-black" webkit-playsinline x-webkit-airplay="" poster="{{ $video->thumbnail_file_path }}" title="{{ $video->title }}">
+            <video autoplay="" controls class="bg-black m-auto" webkit-playsinline x-webkit-airplay="" poster="{{ $video->thumbnail_file_path }}" title="{{ $video->title }}">
                 <source src="{{ $video->video_file_path }}" type="video/mp4">
             </video>
         </div>
         <div class="mx-auto max-w-7xl py-6 px-4 sm:px-0">
             <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">{{ $video->title }}</h1>
             <h1 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 py-2">{{ $video->subscription->title }}</h1>
-            <h1 class="text-l font-bold leading-tight tracking-tight text-gray-500 py-2">{{ $video->published_at->diffForHumans() }}</h1>
+            <h1 class="text-l leading-tight tracking-tight text-gray-500 py-2">{{ $video->published_at->diffForHumans() }}</h1>
         </div>
         <hr>
         <div class="py-6 px-4 sm:px-0">

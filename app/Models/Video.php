@@ -37,7 +37,7 @@ class Video extends Model
 
     public function prunable(): Builder
     {
-        return static::where('published_at', '<=', now()->subWeeks(2));
+        return static::where('published_at', '<=', now()->subWeek());
     }
 
     protected function pruning(): void
