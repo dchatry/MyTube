@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Storage;
 
 class DownloadVideoJob implements ShouldQueue
 {
+    public $timeout = 300;
+
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
@@ -30,7 +32,7 @@ class DownloadVideoJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $result = Process::timeout(120)
+        $result = Process::timeout(300)
             ->path(Storage::disk('videos')->path('/'))
             ->run(config('downloader.path') . " -f best -ciw --write-description --write-thumbnail {$this->video->identifier} -o '{$this->video->identifier}/{$this->video->identifier}.%(ext)s'");
 
