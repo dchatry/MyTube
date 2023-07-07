@@ -35,7 +35,7 @@ class DownloadVideoJob implements ShouldQueue
             ->run("youtube-dl -f best -ciw --write-description --write-thumbnail {$this->video->identifier} -o '{$this->video->identifier}/{$this->video->identifier}.%(ext)s'");
 
         if (! Storage::disk('videos')->exists("{$this->video->identifier}/{$this->video->identifier}.mp4")) {
-            throw new \Exception("Unable to download {$this->video->title}: {$result->output()}.");
+            throw new \Exception("Unable to download {$this->video->title}: {$result->errorOutput()}.");
         }
 
         $this->video->update([
