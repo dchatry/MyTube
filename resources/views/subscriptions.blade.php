@@ -8,7 +8,7 @@
         @foreach($videos as $video)
             <li class="relative">
                 <div class="group aspect-video block w-full overflow-hidden rounded-lg bg-gray-100">
-                    <img src="{{ $video->thumbnail_file_path }}" alt="" class="pointer-events-none object-cover group-hover:opacity-75">
+                    <img src="{{ $video->thumbnail_file_path }}" alt="" class="pointer-events-none object-cover">
                     <Link href="{{ route('video.play', ['video' => $video]) }}" class="absolute inset-0 focus:outline-none">
                         <span class="sr-only">Play {{ $video->title }}</span>
                     </Link>
