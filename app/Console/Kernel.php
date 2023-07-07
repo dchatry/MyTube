@@ -12,8 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-         $schedule->command('subscriptions:refresh')->hourly()->runInBackground();
-         $schedule->command('model:prune')->hourly()->runInBackground();
+        $schedule->command('subscriptions:refresh')->hourly()->runInBackground();
+        $schedule->command('model:prune')->hourly()->runInBackground();
     }
 
     /**

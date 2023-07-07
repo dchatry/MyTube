@@ -1,5 +1,5 @@
 <div class="min-h-full">
-  <nav class="border-b border-gray-200 bg-white">
+  <nav class="border-b border-gray-200 bg-white fixed w-full z-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 justify-between">
         <div class="flex">
@@ -11,7 +11,7 @@
     </div>
   </nav>
 
-  <div class="py-0 sm:py-10">
+  <div class="py-16 sm:py-24">
     <main>
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         {{ $slot }}

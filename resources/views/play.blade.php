@@ -1,7 +1,7 @@
 <x-layout>
     <div class="animate-fade-right animate-once">
-        <div class="group block w-full overflow-hidden rounded-none sm:rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-red-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-            <video autoplay="" controls class="bg-black">
+        <div class="group block w-full overflow-hidden rounded-none sm:rounded-lg bg-gray-100">
+            <video autoplay="" controls class="bg-black" webkit-playsinline x-webkit-airplay="" poster="{{ $video->thumbnail_file_path }}" title="{{ $video->title }}">
                 <source src="{{ $video->video_file_path }}" type="video/mp4">
             </video>
         </div>
@@ -19,7 +19,7 @@
               Watch on YouTube
             </a>
         </div>
-        <div id="description" class="whitespace-pre-line px-4 sm:px-0 pb-8">
+        <div id="description" class="break-words whitespace-pre-line px-4 sm:px-0 pb-8">
             <x-splade-content :html="(new \App\Library\Linkify())->process($video->description)" />
         </div>
     </div>

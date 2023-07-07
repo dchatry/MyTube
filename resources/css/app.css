@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  -webkit-tap-highlight-color: transparent;
+   -webkit-user-select: none;
+   -webkit-touch-callout: none;
+}
+
 #description a {
     @apply text-red-500;
     @apply font-bold;
