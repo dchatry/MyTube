@@ -6,7 +6,7 @@
     </header>
     <ul role="list" class="animate-fade grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8 px-4 sm:px-0">
         @foreach($videos as $video)
-            <li class="relative active:pt-2 pb-1 active:pb-0">
+            <li class="relative">
                 <div class="group aspect-video block w-full overflow-hidden rounded-lg bg-gray-100">
                     <img src="{{ $video->thumbnail_file_path }}" alt="" class="pointer-events-none object-cover">
                     <Link href="{{ route('video.play', ['video' => $video]) }}" class="absolute inset-0 focus:outline-none">
