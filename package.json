@@ -21,6 +21,7 @@
     "dependencies": {
         "@protonemedia/laravel-splade": "^1.4.15",
         "@tailwindcss/aspect-ratio": "^0.4.2",
+        "alpinejs": "^3.12.3",
         "tailwindcss-animated": "^1.0.1",
         "vue": "^3.3.4"
     }
